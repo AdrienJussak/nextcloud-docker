@@ -1,5 +1,5 @@
 FROM nextcloud:latest
 
-RUN apt update && apt install openjdk-11-jre ffmpeg imagemagick ghostscript -y
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt install libreoffice -y
+RUN mkdir -p /usr/share/man/man1 && apt update && apt install ffmpeg imagemagick ghostscript libreoffice -q -y && rm -rf /var/lib/apt/lists/*
